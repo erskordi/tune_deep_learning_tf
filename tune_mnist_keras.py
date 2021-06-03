@@ -86,8 +86,7 @@ if __name__ == "__main__":
         "Ray Client.")
     args, _ = parser.parse_known_args()
     if args.smoke_test:
-        ray._private.services.address_to_ip = lambda x: '127.0.0.1'
-        ray.init(num_cpus=4, local_mode=True)
+        ray.init(num_cpus=4)
     elif args.server_address:
         ray.util.connect(args.server_address)
 
